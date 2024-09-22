@@ -25,6 +25,7 @@
 #ifndef __IQMATHLIB_H__
 #define __IQMATHLIB_H__
 
+#include <stdint.h>
 //*****************************************************************************
 //
 // If building with a C++ compiler, make all of the definitions in this header

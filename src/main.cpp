@@ -1,7 +1,7 @@
 #include <iostream>
 
-
-#include "iqmath/iqt.hpp"
+// #include "../iqmath/IQmathLib.h"
+#include "../iqmath/iqt.hpp"
 
 void test_f(floating auto x){
     std::cout << "float: " << x << std::endl;
