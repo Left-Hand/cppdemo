@@ -60,7 +60,6 @@ namespace std{
 
     template <>
     struct is_floating_point<iq_t> : std::false_type {};
-    //sounds funny
 }
 
 struct iq_t{

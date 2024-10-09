@@ -61,6 +61,9 @@
         "variant": "cpp",
         "support.h": "c",
         "rts_support.h": "c",
-        "_iqntables.h": "c"
+        "_iqntables.h": "c",
+        "any": "cpp",
+        "map": "cpp",
+        "typeindex": "cpp"
     }
 }
