@@ -1,43 +1,21 @@
-/*!****************************************************************************
- *  @file       _IQNdiv.c
- *  @brief      Functions to divide two values of IQN type.
- *
- *  <hr>
- ******************************************************************************/
+#pragma once
 
-#ifndef ti_iq_iqndiv__include
-#define ti_iq_iqndiv__include
 #include <stdint.h>
 
 #include "support.h"
 #include "_IQNtables.hpp"
 #include "IQmathLib.hpp"
 
-/*!
- * @brief Used to specify signed division on IQNdiv
- */
+
 #define TYPE_DEFAULT    (0)
 /*!
  * @brief Used to specify unsigned division on IQNdiv
  */
 #define TYPE_UNSIGNED   (1)
 
-/**
- * @brief Divide two values of IQN type
- *
- * @param iqNInput1       IQN type value numerator to be divided.
- * @param iqNInput2       IQN type value denominator to divide by.
- * @param type            Specify operation is signed or unsigned.
- * @param q_value         IQ format.
- *
- * @return                IQN type result of the multiplication.
- */
-#if defined (__TI_COMPILER_VERSION__)
-#pragma FUNC_ALWAYS_INLINE(__IQNdiv)
-#elif defined(__IAR_SYSTEMS_ICC__)
-#pragma inline=forced
-#endif
-__STATIC_INLINE int_fast32_t __IQNdiv(int_fast32_t iqNInput1, int_fast32_t iqNInput2, const uint8_t type, const int8_t q_value)
+
+template<const int type, const int8_t q_value>
+constexpr int_fast32_t __IQNdiv_impl(int_fast32_t iqNInput1, int_fast32_t iqNInput2)
 {
     uint8_t ui8Index, ui8Sign = 0;
     uint_fast32_t ui32Temp;
@@ -163,32 +141,19 @@ __STATIC_INLINE int_fast32_t __IQNdiv(int_fast32_t iqNInput1, int_fast32_t iqNIn
         return uiqNResult;
     }
 }
-// TODO: unless we find a different use for it, or we are intending to keep same params as RTS function, I see no use for TYPE here.
-#if ((defined (__IQMATH_USE_MATHACL__)) && (defined (__MSPM0_HAS_MATHACL__)))
-/**
- * @brief Divide two values of IQN type, using MathACL
- *
- * @param iqNInput1       IQN type value numerator to be divided.
- * @param iqNInput2       IQN type value denominator to divide by.
- * @param q_value         IQ format.
- *
- * @return                IQN type result of the multiplication.
- */
-#if defined (__TI_COMPILER_VERSION__)
-#pragma FUNC_ALWAYS_INLINE(__IQNdiv_MathACL)
-#elif defined(__IAR_SYSTEMS_ICC__)
-#pragma inline=forced
-#endif
-__STATIC_INLINE int_fast32_t __IQNdiv_MathACL(int_fast32_t iqNInput1, int_fast32_t iqNInput2, const int8_t q_value)
+
+
+template<const uint8_t q_value>
+constexpr int32_t _IQNdiv(int32_t a, int32_t b)
 {
-    /* write control */
-    MATHACL->CTL = 4 | (q_value << 8) | (1 << 5);
-    /* write operands to HWA. OP2 = divisor, OP1 = dividend */
-    MATHACL->OP2 = iqNInput2;
-    /* trigger is write to OP1 */
-    MATHACL->OP1 = iqNInput1;
-    /* read quotient and remainder */
-    return MATHACL->RES1;
+    return __IQNdiv_impl<TYPE_DEFAULT, q_value>(a, b);
 }
-#endif
-#endif
+
+template<const uint8_t q_value>
+constexpr uint32_t _UIQdiv(uint32_t a, uint32_t b)
+{
+    return __IQNdiv_impl<TYPE_UNSIGNED, q_value>(a, b);
+}
+
+#undef TYPE_DEFAULT
+#undef TYPE_UNSIGNED

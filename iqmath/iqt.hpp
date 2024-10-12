@@ -6,6 +6,8 @@
 #include <type_traits>
 #include <concepts>
 
+#include "_IQNdiv.hpp"
+
 #ifndef LOG_E
 #define LOG_E (0.434294481903)
 #endif
@@ -173,7 +175,7 @@ public:
         if (std::is_constant_evaluated()) {
             return iq_t((_iq)((int32_t)value / (int32_t)other.value << GLOBAL_Q));
         }else{
-            return iq_t(_iq(_IQdiv(int32_t(value), int32_t(other.value))));
+            return iq_t(_iq(_IQNdiv<GLOBAL_Q>(int32_t(value), int32_t(other.value))));
         }
     }
 

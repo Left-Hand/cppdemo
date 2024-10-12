@@ -11,7 +11,6 @@
 #include "support.h"
 #include "_IQNtables.hpp"
 #include "IQmathLib.hpp"
-#include "_IQNmpy.hpp"
 #include "_IQNdiv.hpp"
 
 /*!
@@ -30,16 +29,6 @@
 
 #if ((!defined (__IQMATH_USE_MATHACL__)) || (!defined (__MSPM0_HAS_MATHACL__)))
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
-/* Hidden _UIQ31div function. */
-/**
- * @brief Computes the division of the IQ31 inputs.
- *
- * @param uiq31Input1     IQ31 type value numerator to be divided.
- * @param uiq31Input2     IQ31 type value denominator to divide by.
- *
- * @return                IQ31 type result of division.
- */
-extern uint_fast32_t _UIQ31div(uint_fast32_t uiq31Input1, uint_fast32_t uiq31Input2);
 #endif /* DOXYGEN_SHOULD_SKIP_THIS */
 
 /**
@@ -112,9 +101,9 @@ __STATIC_INLINE int_fast32_t __IQNatan2(int_fast32_t iqNInputY, int_fast32_t iqN
      */
     if (uiqNInputX < uiqNInputY) {
         ui8Status |= 4;
-        uiq31Input = _UIQ31div(uiqNInputX, uiqNInputY);
+        uiq31Input = _UIQdiv<31>(uiqNInputX, uiqNInputY);
     } else {
-        uiq31Input = _UIQ31div(uiqNInputY, uiqNInputX);
+        uiq31Input = _UIQdiv<31>(uiqNInputY, uiqNInputX);
     }
 
     /* Calculate the index using the left 8 most bits of the input. */

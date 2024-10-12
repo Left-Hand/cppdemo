@@ -1320,7 +1320,6 @@ extern _iq20 _IQ20div(_iq20 A, _iq20 B);
 extern _iq19 _IQ19div(_iq19 A, _iq19 B);
 extern _iq18 _IQ18div(_iq18 A, _iq18 B);
 extern _iq17 _IQ17div(_iq17 A, _iq17 B);
-extern _iq16 _IQ16div(_iq16 A, _iq16 B);
 extern _iq15 _IQ15div(_iq15 A, _iq15 B);
 extern _iq14 _IQ14div(_iq14 A, _iq14 B);
 extern _iq13 _IQ13div(_iq13 A, _iq13 B);
@@ -1379,9 +1378,7 @@ extern _iq1 _IQ1div(_iq1 A, _iq1 B);
 #if GLOBAL_Q == 17
 #define _IQdiv(A, B)            _IQ17div(A, B)
 #endif
-#if GLOBAL_Q == 16
-#define _IQdiv(A, B)            _IQ16div(A, B)
-#endif
+
 #if GLOBAL_Q == 15
 #define _IQdiv(A, B)            _IQ15div(A, B)
 #endif
