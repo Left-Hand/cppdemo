@@ -162,5 +162,6 @@ int main() {
     #endif
 
     DEBUG_VALUE(atan2(iq_t(1), iq_t(2)));
+    DEBUG_VALUE(sqrt(iq_t(2)));
     return 0;
 }

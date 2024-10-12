@@ -9,6 +9,7 @@
 #include "_IQNdiv.hpp"
 #include "_IQNatan2.hpp"
 #include "_IQNtoF.hpp"
+#include "_IQNsqrt.hpp"
 
 #ifndef LOG_E
 #define LOG_E (0.434294481903)
@@ -356,7 +357,7 @@ __fast_inline iq_t atan2(const iq_t a, const iq_t b) {
 
 __fast_inline iq_t sqrt(const iq_t iq){
     {
-        return iq_t(_iq(_IQsqrt(int32_t(iq.value))));
+        return iq_t(_iq(_IQNsqrt<GLOBAL_Q>(int32_t(iq.value))));
     }
 }
 

@@ -11,17 +11,10 @@
 #include "support.h"
 #include "_IQNtables.hpp"
 #include "IQmathLib.hpp"
+#include "_IQNsqrt.hpp"
 
 /* Hidden Q31 sqrt function. */
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
-/**
- * @brief Computes the square root of the IQ31 input.
- *
- * @param iq31Input       IQ31 type input.
- *
- * @return                IQ31 type result of square root.
- */
-extern int_fast32_t _IQ31sqrt(int_fast32_t iq31Input);
 #endif /* DOXYGEN_SHOULD_SKIP_THIS */
 
 /**
@@ -116,7 +109,7 @@ __STATIC_INLINE int_fast32_t __IQNasin(int_fast32_t iqNInput, const int8_t q_val
         uiq31Input = uiq31InputTemp >> 1;
 
         /* Calculate sqrt((1 - uiq31Input)/2) */
-        uiq31Input = _IQ31sqrt(uiq31Input);
+        uiq31Input = _IQNsqrt<31>(uiq31Input);
 
         /* Flag that the transformation was used. */
         ui8Status |= 2;
