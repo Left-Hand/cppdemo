@@ -8,6 +8,7 @@
 #include <stdint.h>
 
 #include "support.h"
+#include "IQmathLib.hpp"
 
 /**
  * @brief Return the fractional portion of an IQN input.

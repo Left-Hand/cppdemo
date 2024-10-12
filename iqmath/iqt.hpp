@@ -23,9 +23,10 @@
 #endif
 
 #if defined(WIN32)
-#include "IQmathLib.h"
+#include "IQmathLib.hpp"
+#include "rts_support.h"
 #include <numeric>
-#define __fast_inline __inline
+
 // #define __fast_inline constexpr __fast_inline constexpr
 #define CMP_EPSILON 0.0001
 #define RSHIFT(x,s) ((x) >> (s))

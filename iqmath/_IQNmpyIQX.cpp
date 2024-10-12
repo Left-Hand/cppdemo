@@ -12,7 +12,7 @@
 #include <stdint.h>
 
 #include "support.h"
-#include "_IQNtables.h"
+#include "_IQNtables.hpp"
 
 /**
  * @brief Multiply two IQ numbers in different IQ formats,

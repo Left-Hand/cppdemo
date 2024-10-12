@@ -4,7 +4,7 @@
  *
  *  <hr>
  ******************************************************************************/
-#include "_IQNmpy.h"
+#include "_IQNmpy.hpp"
 
 /**
  * @brief Multiplies two values of IQ31 format.

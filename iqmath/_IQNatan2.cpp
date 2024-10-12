@@ -9,10 +9,10 @@
 #include <stdint.h>
 
 #include "support.h"
-#include "_IQNtables.h"
-#include "IQmathLib.h"
-#include "_IQNmpy.h"
-#include "_IQNdiv.h"
+#include "_IQNtables.hpp"
+#include "IQmathLib.hpp"
+#include "_IQNmpy.hpp"
+#include "_IQNdiv.hpp"
 
 /*!
  * @brief The value of PI

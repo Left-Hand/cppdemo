@@ -10,7 +10,8 @@
 #include <stdint.h>
 
 #include "support.h"
-#include "_IQNtables.h"
+#include "_IQNtables.hpp"
+#include "IQmathLib.hpp"
 
 /*!
  * @brief Used to specify signed division on IQNdiv

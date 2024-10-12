@@ -9,7 +9,8 @@
 #include <stdint.h>
 
 #include "support.h"
-#include "_IQNtables.h"
+#include "_IQNtables.hpp"
+#include "IQmathLib.hpp"
 
 /* Hidden Q31 sqrt function. */
 #ifndef DOXYGEN_SHOULD_SKIP_THIS

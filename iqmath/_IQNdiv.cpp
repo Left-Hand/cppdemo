@@ -1,4 +1,4 @@
-#include "_IQNdiv.h"
+#include "_IQNdiv.hpp"
 
 /* RTS Functions */
 #if ((!defined (__IQMATH_USE_MATHACL__)) || (!defined (__MSPM0_HAS_MATHACL__)))

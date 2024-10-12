@@ -34,13 +34,16 @@
 // #define __mpyf_ul(arg1, arg2) ((uint_fast32_t)(((uint_fast64_t)(arg1) * (uint_fast64_t)(arg2)) >> 31));
 // #define __mpyf_ul_reuse_arg1(arg1, arg2) (uint_fast32_t)(((uint_fast64_t)(arg1) * (uint_fast64_t)(arg2)) >> 31)
 
+#ifndef __fast_inline
+#define __fast_inline __inline
+#endif
 
 #if defined (__TI_COMPILER_VERSION__)
 #pragma FUNC_ALWAYS_INLINE(__mpy_start)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline void __mpy_start(uint_fast16_t *ui16IntState, uint_fast16_t *ui16MPYState)
+__fast_inline constexpr void __mpy_start(uint_fast16_t *ui16IntState, uint_fast16_t *ui16MPYState)
 {
     /* Do nothing. */
     return;
@@ -51,7 +54,7 @@ inline void __mpy_start(uint_fast16_t *ui16IntState, uint_fast16_t *ui16MPYState
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline void __mpyf_start(uint_fast16_t *ui16IntState, uint_fast16_t *ui16MPYState)
+__fast_inline constexpr void __mpyf_start(uint_fast16_t *ui16IntState, uint_fast16_t *ui16MPYState)
 {
     /* Do nothing. */
     return;
@@ -62,7 +65,7 @@ inline void __mpyf_start(uint_fast16_t *ui16IntState, uint_fast16_t *ui16MPYStat
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline void __mpyfs_start(uint_fast16_t *ui16IntState, uint_fast16_t *ui16MPYState)
+__fast_inline constexpr void __mpyfs_start(uint_fast16_t *ui16IntState, uint_fast16_t *ui16MPYState)
 {
     /* Do nothing. */
     return;
@@ -73,7 +76,7 @@ inline void __mpyfs_start(uint_fast16_t *ui16IntState, uint_fast16_t *ui16MPYSta
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline void __mpy_clear_ctl0(void)
+__fast_inline constexpr void __mpy_clear_ctl0(void)
 {
     /* Do nothing. */
     return;
@@ -84,7 +87,7 @@ inline void __mpy_clear_ctl0(void)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline void __mpy_set_frac(void)
+__fast_inline constexpr void __mpy_set_frac(void)
 {
     /* Do nothing. */
     return;
@@ -95,7 +98,7 @@ inline void __mpy_set_frac(void)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline void __mpy_stop(uint_fast16_t *ui16IntState, uint_fast16_t *ui16MPYState)
+__fast_inline constexpr void __mpy_stop(uint_fast16_t *ui16IntState, uint_fast16_t *ui16MPYState)
 {
     /* Do nothing. */
     return;
@@ -111,7 +114,7 @@ inline void __mpy_stop(uint_fast16_t *ui16IntState, uint_fast16_t *ui16MPYState)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline int_fast16_t __mpy_w(int_fast16_t arg1, int_fast16_t arg2)
+__fast_inline constexpr int_fast16_t __mpy_w(int_fast16_t arg1, int_fast16_t arg2)
 {
     return (arg1 * arg2);
 }
@@ -121,7 +124,7 @@ inline int_fast16_t __mpy_w(int_fast16_t arg1, int_fast16_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline uint_fast16_t __mpy_uw(uint_fast16_t arg1, uint_fast16_t arg2)
+__fast_inline constexpr uint_fast16_t __mpy_uw(uint_fast16_t arg1, uint_fast16_t arg2)
 {
     return (arg1 * arg2);
 }
@@ -131,7 +134,7 @@ inline uint_fast16_t __mpy_uw(uint_fast16_t arg1, uint_fast16_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline int_fast32_t __mpyx_w(int_fast16_t arg1, int_fast16_t arg2)
+__fast_inline constexpr int_fast32_t __mpyx_w(int_fast16_t arg1, int_fast16_t arg2)
 {
     return ((int_fast32_t)arg1 * (int_fast32_t)arg2);
 }
@@ -141,7 +144,7 @@ inline int_fast32_t __mpyx_w(int_fast16_t arg1, int_fast16_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline uint_fast32_t __mpyx_uw(uint_fast16_t arg1, uint_fast16_t arg2)
+__fast_inline constexpr uint_fast32_t __mpyx_uw(uint_fast16_t arg1, uint_fast16_t arg2)
 {
     return ((uint_fast32_t)arg1 * (uint_fast32_t)arg2);
 }
@@ -151,7 +154,7 @@ inline uint_fast32_t __mpyx_uw(uint_fast16_t arg1, uint_fast16_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline int_fast16_t __mpyf_w(int_fast16_t arg1, int_fast16_t arg2)
+__fast_inline constexpr int_fast16_t __mpyf_w(int_fast16_t arg1, int_fast16_t arg2)
 {
     return (int_fast16_t)(((int_fast32_t)arg1 * (int_fast32_t)arg2) >> 15);
 }
@@ -161,7 +164,7 @@ inline int_fast16_t __mpyf_w(int_fast16_t arg1, int_fast16_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline int_fast16_t __mpyf_w_reuse_arg1(int_fast16_t arg1, int_fast16_t arg2)
+__fast_inline constexpr int_fast16_t __mpyf_w_reuse_arg1(int_fast16_t arg1, int_fast16_t arg2)
 {
     /* This is identical to __mpyf_w */
     return (int_fast16_t)(((int_fast32_t)arg1 * (int_fast32_t)arg2) >> 15);
@@ -172,7 +175,7 @@ inline int_fast16_t __mpyf_w_reuse_arg1(int_fast16_t arg1, int_fast16_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline uint_fast16_t __mpyf_uw(uint_fast16_t arg1, uint_fast16_t arg2)
+__fast_inline constexpr uint_fast16_t __mpyf_uw(uint_fast16_t arg1, uint_fast16_t arg2)
 {
     return (uint_fast16_t)(((uint_fast32_t)arg1 * (uint_fast32_t)arg2) >> 15);
 }
@@ -182,7 +185,7 @@ inline uint_fast16_t __mpyf_uw(uint_fast16_t arg1, uint_fast16_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline uint_fast16_t __mpyf_uw_reuse_arg1(uint_fast16_t arg1, uint_fast16_t arg2)
+__fast_inline constexpr uint_fast16_t __mpyf_uw_reuse_arg1(uint_fast16_t arg1, uint_fast16_t arg2)
 {
     /* This is identical to __mpyf_uw */
     return (uint_fast16_t)(((uint_fast32_t)arg1 * (uint_fast32_t)arg2) >> 15);
@@ -193,7 +196,7 @@ inline uint_fast16_t __mpyf_uw_reuse_arg1(uint_fast16_t arg1, uint_fast16_t arg2
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline int_fast32_t __mpyfx_w(int_fast16_t arg1, int_fast16_t arg2)
+__fast_inline constexpr int_fast32_t __mpyfx_w(int_fast16_t arg1, int_fast16_t arg2)
 {
     return (((int_fast32_t)arg1 * (int_fast32_t)arg2) << 1);
 }
@@ -203,7 +206,7 @@ inline int_fast32_t __mpyfx_w(int_fast16_t arg1, int_fast16_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline int_fast32_t __mpyfx_uw(uint_fast16_t arg1, uint_fast16_t arg2)
+__fast_inline constexpr int_fast32_t __mpyfx_uw(uint_fast16_t arg1, uint_fast16_t arg2)
 {
     return (((uint_fast32_t)arg1 * (uint_fast32_t)arg2) << 1);
 }
@@ -219,7 +222,7 @@ inline int_fast32_t __mpyfx_uw(uint_fast16_t arg1, uint_fast16_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline int_fast32_t __mpy_l(int_fast32_t arg1, int_fast32_t arg2)
+__fast_inline constexpr int_fast32_t __mpy_l(int_fast32_t arg1, int_fast32_t arg2)
 {
     return (arg1 * arg2);
 }
@@ -229,7 +232,7 @@ inline int_fast32_t __mpy_l(int_fast32_t arg1, int_fast32_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline uint_fast32_t __mpy_ul(uint_fast32_t arg1, uint_fast32_t arg2)
+__fast_inline constexpr uint_fast32_t __mpy_ul(uint_fast32_t arg1, uint_fast32_t arg2)
 {
     return (arg1 * arg2);
 }
@@ -239,7 +242,7 @@ inline uint_fast32_t __mpy_ul(uint_fast32_t arg1, uint_fast32_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline int_fast64_t __mpyx(int_fast32_t arg1, int_fast32_t arg2)
+__fast_inline constexpr int_fast64_t __mpyx(int_fast32_t arg1, int_fast32_t arg2)
 {
     return ((int_fast64_t)arg1 * (int_fast64_t)arg2);
 }
@@ -249,7 +252,7 @@ inline int_fast64_t __mpyx(int_fast32_t arg1, int_fast32_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline uint_fast64_t __mpyx_u(uint_fast32_t arg1, uint_fast32_t arg2)
+__fast_inline constexpr uint_fast64_t __mpyx_u(uint_fast32_t arg1, uint_fast32_t arg2)
 {
     return ((uint_fast64_t)arg1 * (uint_fast64_t)arg2);
 }
@@ -259,7 +262,7 @@ inline uint_fast64_t __mpyx_u(uint_fast32_t arg1, uint_fast32_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline int_fast32_t __mpyf_l(int_fast32_t arg1, int_fast32_t arg2)
+__fast_inline constexpr int_fast32_t __mpyf_l(int_fast32_t arg1, int_fast32_t arg2)
 {
     return (int_fast32_t)(((int_fast64_t)arg1 * (int_fast64_t)arg2) >> 31);
 }
@@ -269,7 +272,7 @@ inline int_fast32_t __mpyf_l(int_fast32_t arg1, int_fast32_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline int_fast32_t __mpyf_l_reuse_arg1(int_fast32_t arg1, int_fast32_t arg2)
+__fast_inline constexpr int_fast32_t __mpyf_l_reuse_arg1(int_fast32_t arg1, int_fast32_t arg2)
 {
     /* This is identical to __mpyf_l */
     return (int_fast32_t)(((int_fast64_t)arg1 * (int_fast64_t)arg2) >> 31);
@@ -280,7 +283,7 @@ inline int_fast32_t __mpyf_l_reuse_arg1(int_fast32_t arg1, int_fast32_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline uint_fast32_t __mpyf_ul(uint_fast32_t arg1, uint_fast32_t arg2)
+__fast_inline constexpr uint_fast32_t __mpyf_ul(uint_fast32_t arg1, uint_fast32_t arg2)
 {
     return (uint_fast32_t)(((uint_fast64_t)arg1 * (uint_fast64_t)arg2) >> 31);
 }
@@ -290,7 +293,7 @@ inline uint_fast32_t __mpyf_ul(uint_fast32_t arg1, uint_fast32_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline int_fast32_t __mpyf_ul_reuse_arg1(uint_fast32_t arg1, uint_fast32_t arg2)
+__fast_inline constexpr int_fast32_t __mpyf_ul_reuse_arg1(uint_fast32_t arg1, uint_fast32_t arg2)
 {
     /* This is identical to __mpyf_ul */
     return (uint_fast32_t)(((uint_fast64_t)arg1 * (uint_fast64_t)arg2) >> 31);
@@ -301,7 +304,7 @@ inline int_fast32_t __mpyf_ul_reuse_arg1(uint_fast32_t arg1, uint_fast32_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline int_fast64_t __mpyfx(int_fast32_t arg1, int_fast32_t arg2)
+__fast_inline constexpr int_fast64_t __mpyfx(int_fast32_t arg1, int_fast32_t arg2)
 {
     return (((int_fast64_t)arg1 * (int_fast64_t)arg2) << 1);
 }
@@ -311,7 +314,7 @@ inline int_fast64_t __mpyfx(int_fast32_t arg1, int_fast32_t arg2)
 #elif defined(__IAR_SYSTEMS_ICC__)
 #pragma inline=forced
 #endif
-inline uint_fast64_t __mpyfx_u(uint_fast32_t arg1, uint_fast32_t arg2)
+__fast_inline constexpr uint_fast64_t __mpyfx_u(uint_fast32_t arg1, uint_fast32_t arg2)
 {
     return (((uint_fast64_t)arg1 * (uint_fast64_t)arg2) << 1);
 }
