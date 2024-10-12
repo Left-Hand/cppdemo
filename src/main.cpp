@@ -129,7 +129,7 @@ int main() {
     #define DEBUG_IQ_SINCOS
     #ifdef DEBUG_IQ_SINCOS
     DEBUG_VALUE(sin(iq_t(M_PI/3)));
-    DEBUG_VALUE(sin(iq_t(M_PI/3)));
+    DEBUG_VALUE(cos(iq_t(M_PI/3)));
     
     DEBUG_VALUE(acos(iq_t(sqrt(iq_t(3))/2)) / M_PI);
     DEBUG_VALUE(acos(iq_t(sqrt(iq_t(2))/2)) / M_PI);

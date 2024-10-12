@@ -12,6 +12,7 @@
 #include "_IQNsqrt.hpp"
 #include "_IQNexp.hpp"
 #include "_IQNasin_acos.hpp"
+#include "_IQNsin_cos.hpp"
 
 
 #ifndef LOG_E
@@ -313,13 +314,13 @@ IQ_BINA_DELETE(>=)
 
 __fast_inline iq_t sinf(const iq_t iq){
     {
-        return iq_t(_iq(_IQsin(int32_t(iq.value))));
+        return iq_t(_iq(_IQNsin<GLOBAL_Q>(int32_t(iq.value))));
     }
 }
 
 __fast_inline iq_t cosf(const iq_t iq){
     {
-        return iq_t(_iq(_IQcos(int32_t(iq.value))));
+        return iq_t(_iq(_IQNcos<GLOBAL_Q>(int32_t(iq.value))));
     }
 }
 
