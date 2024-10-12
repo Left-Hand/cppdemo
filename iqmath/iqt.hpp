@@ -10,6 +10,8 @@
 #include "_IQNatan2.hpp"
 #include "_IQNtoF.hpp"
 #include "_IQNsqrt.hpp"
+#include "_IQNexp.hpp"
+
 
 #ifndef LOG_E
 #define LOG_E (0.434294481903)
@@ -426,7 +428,7 @@ __fast_inline iq_t log(const iq_t iq) {
 
 __fast_inline iq_t exp(const iq_t iq) {
     {
-        return iq_t(_iq(_IQexp(int32_t(iq.value))));
+        return iq_t(_iq(_IQNexp<GLOBAL_Q>(int32_t(iq.value))));
     }
 }
 
