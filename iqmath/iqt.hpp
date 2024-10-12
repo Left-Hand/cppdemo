@@ -7,6 +7,7 @@
 #include <concepts>
 
 #include "_IQNdiv.hpp"
+#include "_IQNatan2.hpp"
 
 #ifndef LOG_E
 #define LOG_E (0.434294481903)
@@ -342,13 +343,13 @@ __fast_inline iq_t acos(const iq_t iq) {
 
 __fast_inline iq_t atan(const iq_t iq) {
     {
-        return iq_t(_iq(_IQatan(int32_t(iq.value))));
+        return iq_t(_iq(_IQNatan2<GLOBAL_Q>(int32_t(iq.value), _IQ(1))));
     }
 }
 
 __fast_inline iq_t atan2f(const iq_t a, const iq_t b) {
     {
-        return iq_t(_iq(_IQatan2(int32_t(a.value),int32_t(b.value))));
+        return iq_t(_iq(_IQNatan2<GLOBAL_Q>(int32_t(a.value),int32_t(b.value))));
     }
 }
 
