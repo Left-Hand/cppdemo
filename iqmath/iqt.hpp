@@ -11,6 +11,7 @@
 #include "_IQNtoF.hpp"
 #include "_IQNsqrt.hpp"
 #include "_IQNexp.hpp"
+#include "_IQNasin_acos.hpp"
 
 
 #ifndef LOG_E
@@ -331,13 +332,13 @@ __fast_inline iq_t tan(const iq_t iq) {return tanf(iq);}
 
 __fast_inline iq_t asin(const iq_t iq) {
     {
-        return iq_t(_iq(_IQasin(int32_t(iq.value))));
+        return iq_t(_iq(_IQNasin<GLOBAL_Q>(int32_t(iq.value))));
     }
 }
 
 __fast_inline iq_t acos(const iq_t iq) {
     {
-        return iq_t(_iq(_IQacos(int32_t(iq.value))));
+        return iq_t(_iq((1.570796327 * (1 << GLOBAL_Q) - _IQNasin<GLOBAL_Q>(int32_t(iq.value)))));
     }
 }
 
