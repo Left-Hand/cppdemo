@@ -4,7 +4,7 @@
 
 #include "support.h"
 #include "_IQNtables.hpp"
-#include "IQmathLib.hpp"
+
 
 #ifndef PI
 #define PI (3.1415926536)

@@ -4,7 +4,7 @@
 
 #include "support.h"
 #include "_IQNtables.hpp"
-#include "IQmathLib.hpp"
+
 #include "_IQNsqrt.hpp"
 
 /* Hidden Q31 sqrt function. */

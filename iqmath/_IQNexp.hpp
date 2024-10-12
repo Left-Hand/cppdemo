@@ -4,7 +4,7 @@
 
 #include "support.h"
 #include "_IQNtables.hpp"
-#include "IQmathLib.hpp"
+
 
 /**
  * @brief Computes the exponential of an IQN input.

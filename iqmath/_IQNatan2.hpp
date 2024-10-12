@@ -2,7 +2,7 @@
 
 #include "support.h"
 #include "_IQNtables.hpp"
-#include "IQmathLib.hpp"
+
 #include "_IQNdiv.hpp"
 
 #ifndef PI

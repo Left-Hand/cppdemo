@@ -4,7 +4,7 @@
 
 #include "support.h"
 #include "_IQNtables.hpp"
-#include "IQmathLib.hpp"
+
 
 /*!
  * @brief Specifies inverse square root operation type.

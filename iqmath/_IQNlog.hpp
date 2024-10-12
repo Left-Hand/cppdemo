@@ -3,7 +3,7 @@
 
 #include "support.h"
 #include "_IQNtables.hpp"
-#include "IQmathLib.hpp"
+
 /**
  * @brief Computes the base-e logarithm of an IQN input.
  *

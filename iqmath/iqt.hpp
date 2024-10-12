@@ -1,6 +1,4 @@
-#ifndef __IQT_HPP__
-
-#define __IQT_HPP__
+#pragma once
 
 #include <stdint.h>
 #include <type_traits>
@@ -33,7 +31,7 @@
 #endif
 
 #if defined(WIN32)
-#include "IQmathLib.hpp"
+
 #include "rts_support.h"
 #include <numeric>
 
@@ -44,6 +42,16 @@
 #define FPU_PRESENT
 #define IQ_USE_LOG
 #define IQ_GENERAL_LOG
+
+#define GLOBAL_Q 16
+#ifndef _IQ
+#define _IQ(x) (x * (1 << GLOBAL_Q))
+#endif
+
+template<const int8_t q_value>
+constexpr int32_t _IQNint(int32_t value){
+    return value >> q_value;
+}
 // #define IQ_CH32_LOG
 
 template<typename T>
@@ -401,7 +409,7 @@ __fast_inline constexpr iq_t frac(const iq_t iq){
 __fast_inline constexpr iq_t floor(const iq_t iq){return int(iq);}
 __fast_inline constexpr iq_t ceil(const iq_t iq){return (iq > int(iq)) ? int(iq) + 1 : int(iq);}
 
-__fast_inline constexpr iq_t round(const iq_t iq){return iq_t((int)_IQint(int32_t(iq.value) + int32_t(1 << (GLOBAL_Q - 1))));}
+__fast_inline constexpr iq_t round(const iq_t iq){return iq_t((int)_IQNint<GLOBAL_Q>(int32_t(iq.value) + int32_t(1 << (GLOBAL_Q - 1))));}
 
 bool is_equal_approx(const iq_t a,const iq_t b);
 
@@ -432,15 +440,6 @@ __fast_inline iq_t log(const iq_t iq) {
 __fast_inline iq_t exp(const iq_t iq) {
     {
         return iq_t(_iq(_IQNexp<GLOBAL_Q>(int32_t(iq.value))));
-    }
-}
-
-__fast_inline iq_t exp2(const iq_t iq) {
-    // if(std::is_constant_evaluated()){
-    //     return iq_t(cem::pow(2.0, double(iq)));
-    // }else
-    {
-        return iq_t(_iq(_IQexp2(int32_t(iq.value))));
     }
 }
 
@@ -541,5 +540,3 @@ namespace std{
     __fast_inline iq_t log(const iq_t iq){return ::log(iq);}
     #endif
 }
-
-#endif
