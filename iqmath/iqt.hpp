@@ -13,6 +13,7 @@
 #include "_IQNexp.hpp"
 #include "_IQNasin_acos.hpp"
 #include "_IQNsin_cos.hpp"
+#include "_IQNlog.hpp"
 
 
 #ifndef LOG_E
@@ -413,7 +414,7 @@ __fast_inline iq_t log10(const iq_t iq) {
         #ifdef IQ_CH32_LOG
         return iq_t(_iq(_IQlog10(iq.value)));
         #else
-        return iq_t(_iq(_IQlog(int32_t(iq.value)))) / iq_t(_iq(_IQlog(int32_t(_IQ(10)))));
+        return iq_t(_iq(_IQNlog<GLOBAL_Q>(int32_t(iq.value)))) / iq_t(_iq(_IQNlog<GLOBAL_Q>(int32_t(_IQ(10)))));
         #endif
     }
 }
@@ -423,7 +424,7 @@ __fast_inline iq_t log(const iq_t iq) {
         #ifdef IQ_CH32_LOG
         return iq_t(_iq(_IQdiv(_IQlog10(iq.value), _IQlog10(_IQ(M_E)))));
         #else
-            return iq_t(_iq(_IQlog(int32_t(iq.value))));
+            return iq_t(_iq(_IQNlog<GLOBAL_Q>(int32_t(iq.value))));
         #endif
     }
 }
