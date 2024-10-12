@@ -8,6 +8,7 @@
 
 #include "_IQNdiv.hpp"
 #include "_IQNatan2.hpp"
+#include "_IQNtoF.hpp"
 
 #ifndef LOG_E
 #define LOG_E (0.434294481903)
@@ -234,15 +235,11 @@ public:
     #undef IQ_TOINT_TEMPLATE
 
     __inline constexpr explicit operator float() const{
-        #if defined(FPU_PRESENT)
-        return float(int32_t(value)) / (1 << GLOBAL_Q);
-        #else
         if(std::is_constant_evaluated()){
             return float(int32_t(value)) / (1 << GLOBAL_Q);
         }else{
-            return _IQtoF(int32_t(value));
+            return _IQNtoF<GLOBAL_Q>(int32_t(value));
         }
-        #endif
     }
 
     __inline constexpr explicit operator double() const{

@@ -38,6 +38,10 @@
 #define __fast_inline __inline
 #endif
 
+#ifndef scexpr
+#define scexpr static constexpr
+#endif
+
 #if defined (__TI_COMPILER_VERSION__)
 #pragma FUNC_ALWAYS_INLINE(__mpy_start)
 #elif defined(__IAR_SYSTEMS_ICC__)
