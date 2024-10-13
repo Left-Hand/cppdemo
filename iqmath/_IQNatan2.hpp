@@ -1,3 +1,5 @@
+#pragma once
+
 #include <stdint.h>
 
 #include "support.h"
@@ -45,7 +47,7 @@
 
 
 template<const uint8_t type, const int8_t q_value>
-__STATIC_INLINE int_fast32_t __IQNatan2_impl(int_fast32_t iqNInputY, int_fast32_t iqNInputX)
+constexpr int_fast32_t __IQNatan2_impl(int_fast32_t iqNInputY, int_fast32_t iqNInputX)
 {
     uint8_t ui8Status = 0;
     uint8_t ui8Index;
