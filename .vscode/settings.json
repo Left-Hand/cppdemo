@@ -64,6 +64,7 @@
         "_iqntables.h": "c",
         "any": "cpp",
         "map": "cpp",
-        "typeindex": "cpp"
+        "typeindex": "cpp",
+        "queue": "cpp"
     }
 }

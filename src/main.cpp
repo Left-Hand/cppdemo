@@ -3,7 +3,15 @@
 // #include "../iqmath/IQmathLib.h"
 // #include "../iqmath/iqt.hpp"
 #include "../iqmath/iqt2.hpp"
+#include "patterns/decorate.hpp"
+#include "patterns/strategy.hpp"
+#include "patterns/actions.hpp"
+#include "patterns/prototype.hpp"
+#include "patterns/builder.hpp"
+#include "patterns/adaptor.hpp"
+#include "patterns/memento.hpp"
 
+#include "coroutines/coro.hpp"
 #include <iostream>
 #include <vector>
 #include <functional>
@@ -81,7 +89,7 @@ void print_q(const iq2_t<Q> & qv){
     DEBUG_PRINTLN(Q);
 }
 // 示例使用
-int main() {
+void iq_tb() {
     // LambdaPool pool;
     // pool.addLambda([](int a, double b) { std::cout << "Called with int and double: " << a << ", " << b << std::endl; });
     // pool.addLambda([](std::string s) { std::cout << "Called with string: " << s << std::endl; });
@@ -213,5 +221,14 @@ int main() {
     // DEBUG_VALUE(fmod(iq2_t<16>(0.3), iq2_t<16>(0.2)));
 
     #endif
-    return 0;
+}
+
+int main(){
+    // decorate_tb();
+    // strategy_tb();
+    // actions_tb();
+    // prototype_tb();
+    // builder_tb();
+    // adaptor_tb();
+    coro_tb();
 }
